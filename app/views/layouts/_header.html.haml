@@ -1,0 +1,15 @@
+%header
+  %h4 The Tempus Hospital
+  %ul
+    - if current_user
+      %li
+        =link_to "#{current_user.name}!", current_user
+      %li
+        =link_to "Sign Out", session_path, method: :delete, class: "button"
+    - else
+      %li
+        #sign_up
+          =link_to 'Sign Up', signup_path, class: "button"
+      %li
+        #sign_in
+          =link_to 'Sign In', new_session_path, class: "button"

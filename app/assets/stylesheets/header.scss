@@ -1,0 +1,39 @@
+@import "buttons";
+header {
+  color: #F0F0F0;
+  background-color: #2382CE;
+
+  padding: 15px;
+
+  ul {
+    float: right;
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+    a {
+      color: #F0F0F0;
+      text-decoration-line: none;
+    }
+  }
+
+  h4 {
+    margin-left: 10px;
+    vertical-align: middle;
+    display: inline;
+  }
+
+  #sign_up,#sign_in {
+    display: inline;
+    margin-right: 45px;
+    a {
+      text-decoration: none;
+      color: #F0F0F0;
+    }
+  }
+
+}

@@ -1,0 +1,28 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+
+  #container {
+    height: auto !important;
+    min-height: 100%;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  table {
+
+    th {
+      text-transform: uppercase;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      font-size: 12px;
+    }
+  }
+
+
+}

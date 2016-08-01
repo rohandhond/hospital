@@ -1,0 +1,68 @@
+<div class="container">
+<h1> Welcome <%= @user.profile_type %> <%=@user.name %></h1>
+<!--<h2> <%= @user.email %></h2>
+<h2> <%= @user.age %></h2>-->
+
+<% if @user.profile_type == 'Doctor' %>
+    <table class="table table-hover table-bordered" width="100%" cellpadding="0" cellspacing="0" id="train_lines_table">
+      <thead>
+      <tr>
+        <th>Patient Name</th>
+        <th>Age</th>
+        <th>Address</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @user.doctor(@user.profile_id).patients.each do |patient|%>
+          <tr>
+            <td><%= patient.user.name %></td>
+            <td><%= patient.user.age %></td>
+            <td><%= patient.address %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% elsif @user.profile_type == 'Patient' %>
+
+  <br />
+
+  <%= link_to "New Document", new_document_path, class: "btn btn-primary" %>
+  <br />
+  <br />
+
+    <% if @documents = @user.patient(@user.profile_id).documents %>
+    <table class = "table table-bordered table-striped">
+      <thead>.
+      <tr>
+        <th>Name</th>
+        <th>Download Link</th>
+        <th> </th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @documents.each do |document| %>
+
+        <tr>
+          <td><%= document.name %></td>
+          <td><%= link_to "Download Document", document.attachment_url %></td>
+          <td><%= button_to "Delete",  document, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{document.name}?" %></td>
+        </tr>
+
+      <% end %>
+      </tbody>
+
+    </table>
+  <% end %>
+
+<% end %>
+
+<% if current_user?(@user) %>
+  <%= link_to 'Edit Account', edit_user_path, class: "button" %>
+  <%= link_to 'Delete Account', @user,
+              method: :delete,
+              date: {confirm: 'Are you sure ?'},
+              class: 'button' %>
+<% end %>
+
+</div>

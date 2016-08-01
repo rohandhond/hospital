@@ -1,0 +1,15 @@
+!!! 5
+%html
+%head
+%meta{:"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+%meta{:name => "lang", :content => "en"}
+%title The Tempus Hospital
+= favicon_link_tag 'favicon-blue.png', type: 'image/png'
+= javascript_include_tag "application"
+= stylesheet_link_tag "application"
+%body
+= render 'layouts/header'
+= render 'layouts/flashes'
+
+= yield
+= render 'layouts/footer'
